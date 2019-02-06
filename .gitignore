@@ -2,7 +2,6 @@
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
-
 .DS_Store
 
 ## Build generated
@@ -72,22 +71,7 @@ fastlane/test_output
 
 
 ## Pho Specific
-#PRGRoundSlider/
-Notes/
-Includes/DateTimePicker
-PRGRoundSlider
-Includes/DateTimePicker
-Dose/Views/DateTimePicker.swift-PhoCustom.zip
 *.trace
 *.ooutline
-Other/Dose App Documents Folder alias
-Other/Exported Data
-Other/BugFixingNapkin.napkin
 *.zip
-Includes/RevealServer.framework
 *.dmg
-*/ScratchPadNotes.swift
-Playgrounds
-Dose.xcodeproj/xcuserdata
-git backup/*
-
