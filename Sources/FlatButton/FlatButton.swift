@@ -17,7 +17,7 @@ internal extension CALayer {
             animation.fromValue = value(forKey: keyPath)
             animation.duration = duration
             animation.isRemovedOnCompletion = false
-            animation.fillMode = kCAFillModeForwards
+            animation.fillMode = CAMediaTimingFillMode.forwards
             add(animation, forKey: keyPath)
             setValue(color, forKey: keyPath)
         }
@@ -194,7 +194,7 @@ open class FlatButton: NSButton, CALayerDelegate {
     }
     
     func positionTitleAndImage() {
-        let attributes = [NSAttributedStringKey.font: font as Any]
+        let attributes = [NSAttributedString.Key.font: font as Any]
         let titleSize = title.size(withAttributes: attributes)
         var titleRect = NSMakeRect(0, 0, titleSize.width, titleSize.height)
         var imageRect = iconLayer.frame
@@ -215,10 +215,13 @@ open class FlatButton: NSButton, CALayerDelegate {
             imageRect.origin.x = round((bounds.width - imageRect.width)/2)
             break
         case .imageLeft:
-            titleRect.origin.y = round((bounds.height - titleSize.height)/2)
-            titleRect.origin.x = bounds.width - titleSize.width - 6
+            let padding: CGFloat = 4
+            let width = imageRect.width + padding + titleRect.width
+            let margin = (bounds.width - width) / 2
             imageRect.origin.y = round((bounds.height - imageRect.height)/2)
-            imageRect.origin.x = hSpacing
+            imageRect.origin.x = margin
+            titleRect.origin.y = round((bounds.height - titleSize.height)/2)
+            titleRect.origin.x = margin + imageRect.width + padding
             break
         case .imageRight:
             titleRect.origin.y = round((bounds.height - titleSize.height)/2)
@@ -368,7 +371,7 @@ open class FlatButton: NSButton, CALayerDelegate {
         }
     }
     
-    override open func layer(_ layer: CALayer, shouldInheritContentsScale newScale: CGFloat, from window: NSWindow) -> Bool {
+    open func layer(_ layer: CALayer, shouldInheritContentsScale newScale: CGFloat, from window: NSWindow) -> Bool {
         return true
     }
     

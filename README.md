@@ -1,5 +1,4 @@
-FlatButton
-==================
+# FlatButton
 
 Layer based NSButton with Interface Builder exposed style options.
 
